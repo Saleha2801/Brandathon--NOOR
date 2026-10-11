@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NOOR — Beyond Scent | The Scent You Can See</title>
+  <meta name="description" content="NOOR is a luxury Indian fragrance house built on one singular vision: The Scent You Can See. Experience fragrance through imagination before you smell it.">
+  
+  <!-- Favicon / Sunburst Crest SVG -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><circle cx='50' cy='50' r='14' fill='%23B5965A'/><g stroke='%23B5965A' stroke-width='3'><line x1='50' y1='10' x2='50' y2='26'/><line x1='50' y1='74' x2='50' y2='90'/><line x1='10' y1='50' x2='26' y2='50'/><line x1='74' y1='50' x2='90' y2='50'/><line x1='22' y1='22' x2='33' y2='33'/><line x1='67' y1='67' x2='78' y2='78'/><line x1='22' y1='78' x2='33' y2='67'/><line x1='67' y1='33' x2='78' y2='22'/></g></svg>">
+
+  <!-- Stylesheets with Cache Busting -->
+  <link rel="stylesheet" href="css/luxury-tokens.css?v=7">
+  <link rel="stylesheet" href="css/animations.css?v=7">
+  <link rel="stylesheet" href="css/main.css?v=7">
+</head>
+<body>
+
+  <!-- Cinematic Entrance Overlay (2.5–3.5s Golden Awakening) -->
+  <div class="entrance-overlay" id="entrance-overlay">
+    <div class="entrance-light-point"></div>
+    <div class="entrance-brand-reveal">
+      <img src="assets/images/noor_navbar_logo.png" alt="NOOR Beyond Scent" style="height: 64px; object-fit: contain; filter: drop-shadow(0 0 25px rgba(216, 192, 154, 0.7));">
+    </div>
+  </div>
+
+  <!-- Fixed Editorial Luxury Navigation -->
+  <header class="noor-navbar" id="noor-navbar">
+    <a href="#" class="nav-brand clickable" data-cursor="NOOR">
+      <img src="assets/images/noor_navbar_logo.png" alt="NOOR — Beyond Scent" class="brand-logo-img">
+    </a>
+
+    <nav class="nav-central-menu">
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#hero-section" class="nav-link clickable">DISCOVER</a></li>
+        <li><a href="#four-worlds-section" class="nav-link clickable">SCENTS</a></li>
+        <li><a href="#scent-gallery" class="nav-link clickable">SIGNATURE SCENT</a></li>
+        <li><a href="#see-your-scent" class="nav-link clickable">SEE YOUR SCENT</a></li>
+        <li><a href="#the-story" class="nav-link clickable">OUR STORY</a></li>
+      </ul>
+    </nav>
+
+    <div class="nav-actions">
+      <!-- Right CTA button: DISCOVER YOUR SCENT → -->
+      <a href="#see-your-scent" class="nav-cta-pill clickable" data-cursor="DISCOVER">
+        <span>DISCOVER YOUR SCENT →</span>
+      </a>
+
+      <!-- Ambient Soundscape Toggle -->
+      <button class="audio-toggle-btn clickable" id="audio-toggle-btn" aria-label="Toggle ambient atmosphere sound" data-cursor="SOUND">
+        <div class="audio-wave-icon">
+          <span class="audio-wave-bar"></span>
+          <span class="audio-wave-bar"></span>
+          <span class="audio-wave-bar"></span>
+        </div>
+        <span id="audio-state-label">SOUND: OFF</span>
+      </button>
+
+      <!-- Discovery Bag Button -->
+      <button class="cart-icon-btn clickable" data-action="open-bag" aria-label="Open discovery bag" data-cursor="BAG">
+        <svg class="cart-icon-svg" viewBox="0 0 24 24">
+          <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/>
+          <line x1="3" y1="6" x2="21" y2="6"/>
+          <path d="M16 10a4 4 0 0 1-8 0"/>
+        </svg>
+        <span class="cart-counter" id="bag-count-badge" style="display: none;">0</span>
+      </button>
+
+      <!-- Mobile Hamburger Button -->
+      <button class="mobile-nav-toggle clickable" id="mobile-nav-toggle" aria-label="Open menu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION — FULL-BLEED MEDITERRANEAN ARCH EDITORIAL COMPOSITION
+       ========================================================================== -->
+  <section class="hero-editorial-section" id="hero-section">
+    <!-- Full-Bleed Architectural Mediterranean Backdrop spanning entire section -->
+    <div class="hero-fullbleed-backdrop">
+      <img src="assets/images/noor_hero_fullbleed_backdrop.jpg" alt="NOOR Mediterranean Archway and Perfume Flacon" class="hero-fullbleed-img">
+      <div class="hero-fullbleed-overlay"></div>
+    </div>
+
+    <!-- Ambient 60FPS Dynamic Particle Canvas (Golden mist, light caustics) -->
+    <canvas class="hero-canvas" id="hero-fragrance-canvas"></canvas>
+
+    <!-- Interactive Bottle Mist Trigger Zone over the Flacon on the Sandstone Pedestal -->
+    <div class="hero-interactive-bottle-hitbox" id="hero-flacon-card" data-cursor="CLICK TO MIST">
+      <div class="hero-bottle-pulse-halo"></div>
+    </div>
+
+    <!-- Editorial Typography Container aligned on the left -->
+    <div class="hero-editorial-container">
+      <div class="hero-editorial-left">
+        <div class="hero-eyebrow-wrap">
+          <span class="hero-eyebrow-text">THE SCENT YOU CAN SEE</span>
+          <span class="hero-eyebrow-line"></span>
+        </div>
+
+        <h1 class="hero-editorial-headline">
+          WHAT IF YOU COULD<br>
+          SEE A FRAGRANCE<br>
+          BEFORE YOU SMELLED IT?
+        </h1>
+
+        <p class="hero-editorial-subtext">
+          A journey of senses, a story in colour,<br>
+          texture, light and form.
+        </p>
+
+        <div class="hero-editorial-ctas">
+          <a href="#see-your-scent" class="hero-btn-primary clickable" data-cursor="DISCOVER">
+            <span>DISCOVER YOUR SCENT →</span>
+          </a>
+          <a href="#scent-gallery" class="hero-btn-secondary clickable" data-cursor="ATELIER">
+            <span>CREATE SIGNATURE SCENT</span>
+          </a>
+        </div>
+
+        <a href="#four-worlds-section" class="hero-scroll-indicator clickable" data-cursor="EXPLORE">
+          <div class="scroll-mouse-pill">
+            <span class="scroll-wheel-dot"></span>
+          </div>
+          <span class="scroll-indicator-text">SCROLL TO EXPLORE</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- Subtle Vertical Edge Crest Accent on far right edge -->
+    <div class="hero-side-badge">
+      <span class="side-badge-star">✦</span>
+      <span class="side-badge-text">FEEL THE STORY</span>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOUR FRAGRANCE WORLDS — ONE NOOR (DISCOVERY HORIZONTAL SECTION)
+       ========================================================================== -->
+  <section class="four-worlds-discovery-section" id="four-worlds-section">
+    <div class="four-worlds-container">
+      <div class="four-worlds-header-row">
+        <div class="four-worlds-title-block">
+          <div class="four-worlds-eyebrow">
+            <span>FOUR FRAGRANCE WORLDS</span>
+            <span class="four-worlds-line"></span>
+          </div>
+          <h2 class="four-worlds-main-heading">ONE NOOR</h2>
+        </div>
+
+        <div class="four-worlds-cards-grid">
+          <!-- Card 1: Midnight Musk -->
+          <article class="four-world-card clickable" data-perfume-id="01" data-cursor="01 MIDNIGHT MUSK">
+            <div class="world-card-visual">
+              <img src="assets/images/texture_kasturi_midnight_musk.jpg" alt="Midnight Musk Abstract Texture" class="world-card-texture">
+              <div class="world-card-glow-overlay"></div>
+            </div>
+            <div class="world-card-info">
+              <h3 class="world-card-name">MIDNIGHT MUSK</h3>
+              <div class="world-card-divider"></div>
+              <span class="world-card-subtitle">Dark • Sensual • Mysterious</span>
+            </div>
+          </article>
+
+          <!-- Card 2: Rain Whisper -->
+          <article class="four-world-card clickable" data-perfume-id="02" data-cursor="02 RAIN WHISPER">
+            <div class="world-card-visual">
+              <img src="assets/images/texture_mitti_rain_whisper.jpg" alt="Rain Whisper Abstract Texture" class="world-card-texture">
+              <div class="world-card-glow-overlay"></div>
+            </div>
+            <div class="world-card-info">
+              <h3 class="world-card-name">RAIN WHISPER</h3>
+              <div class="world-card-divider"></div>
+              <span class="world-card-subtitle">Earthy • Fresh • Nostalgic</span>
+            </div>
+          </article>
+
+          <!-- Card 3: Sandal Glow -->
+          <article class="four-world-card clickable" data-perfume-id="03" data-cursor="03 SANDAL GLOW">
+            <div class="world-card-visual">
+              <img src="assets/images/texture_sandal_sandal_glow.jpg" alt="Sandal Glow Abstract Texture" class="world-card-texture">
+              <div class="world-card-glow-overlay"></div>
+            </div>
+            <div class="world-card-info">
+              <h3 class="world-card-name">SANDAL GLOW</h3>
+              <div class="world-card-divider"></div>
+              <span class="world-card-subtitle">Warm • Woody • Refined</span>
+            </div>
+          </article>
+
+          <!-- Card 4: White Petal -->
+          <article class="four-world-card clickable" data-perfume-id="04" data-cursor="04 WHITE PETAL">
+            <div class="world-card-visual">
+              <img src="assets/images/texture_mogra_white_petal.jpg" alt="White Petal Abstract Texture" class="world-card-texture">
+              <div class="world-card-glow-overlay"></div>
+            </div>
+            <div class="world-card-info">
+              <h3 class="world-card-name">WHITE PETAL</h3>
+              <div class="world-card-divider"></div>
+              <span class="world-card-subtitle">Floral • Soft • Luminous</span>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 5: “CAN YOU SEE A SMELL?”
+       ========================================================================== -->
+  <section class="see-smell-section reveal-on-scroll">
+    <canvas class="see-smell-canvas" id="see-smell-canvas"></canvas>
+    <div class="see-smell-content">
+      <h2 class="see-smell-words">
+        <span class="split-reveal-word">CAN YOU</span>
+        <span class="split-reveal-word">SEE A</span>
+        <span class="split-reveal-word">SMELL?</span>
+      </h2>
+      <p class="see-smell-subtext">
+        “We experience fragrance through the nose.<br>
+        But we discover it through imagination.”
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 6: THE INVISIBLE HAS A BRANDING PROBLEM
+       ========================================================================== -->
+  <section class="invisible-section reveal-on-scroll" id="the-story">
+    <div class="invisible-container">
+      <div class="editorial-tag">AN EDITORIAL PERSPECTIVE</div>
+      <h2 class="invisible-title">THE INVISIBLE HAS A BRANDING PROBLEM.</h2>
+      <p class="invisible-quote">
+        “A bottle can show you what a fragrance looks like.<br>
+        A name can tell you what it is called.<br>
+        But neither can truly show you what it feels like.”
+      </p>
+
+      <div class="see-read-imagine-flow">
+        <span class="sri-step" id="sri-see">SEE</span>
+        <span class="sri-arrow">→</span>
+        <span class="sri-step" id="sri-read">READ</span>
+        <span class="sri-arrow">→</span>
+        <span class="sri-step" id="sri-imagine">IMAGINE</span>
+      </div>
+
+      <div class="invisible-question">
+        “What if we could make that imagination visible?”
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 8: UNBOXING CINEMATIC EXPERIENCE — “BEYOND THE BOX”
+       ========================================================================== -->
+  <section class="noor-unboxing-cinematic-section" id="packaging-unboxing-section">
+    <div class="unboxing-cinematic-container">
+      
+      <!-- Section Header with User's Exact Line -->
+      <div class="unboxing-cinematic-header reveal-on-scroll">
+        <span class="editorial-tag">THE UNBOXING RITUAL</span>
+        <h2 class="unboxing-editorial-headline">Beyond the Box — A first glimpse into the world of NOOR.</h2>
+        <p class="unboxing-editorial-subtext">Four bespoke architectural coffrets crafted with gold-embossed grain. Watch the sacred flacon emerge into the light.</p>
+      </div>
+
+      <!-- 4 Fragrance Selector Pills -->
+      <nav class="unboxing-fragrance-pills reveal-on-scroll" id="unboxing-video-pills">
+        <button class="unboxing-pill-btn active clickable" data-fragrance-id="01" title="Select Midnight Musk">
+          <span class="pill-dot"></span> 01 MIDNIGHT MUSK
+        </button>
+        <button class="unboxing-pill-btn clickable" data-fragrance-id="02" title="Select Rain Whisper">
+          <span class="pill-dot"></span> 02 RAIN WHISPER
+        </button>
+        <button class="unboxing-pill-btn clickable" data-fragrance-id="03" title="Select Sandal Glow">
+          <span class="pill-dot"></span> 03 SANDAL GLOW
+        </button>
+        <button class="unboxing-pill-btn clickable" data-fragrance-id="04" title="Select White Petal">
+          <span class="pill-dot"></span> 04 WHITE PETAL
+        </button>
+      </nav>
+
+      <!-- Main Unboxing Theater Stage -->
+      <div class="unboxing-theater-stage reveal-on-scroll">
+        <!-- Left: Cinematic Video Player Frame -->
+        <div class="unboxing-player-col">
+          <div class="unboxing-video-frame">
+            <video class="unboxing-featured-video" id="unboxing-main-video" autoplay muted loop playsinline poster="public/assets/noor/midnight-musk/frame-01.webp">
+              <source id="unboxing-video-source" src="assets/videos/midnight-musk-unboxing.mp4" type="video/mp4">
+            </video>
+            <div class="unboxing-video-controls">
+              <button class="unboxing-ctrl-btn clickable" id="unboxing-video-play-btn" aria-label="Pause video">❚❚</button>
+              <button class="unboxing-ctrl-btn clickable" id="unboxing-video-mute-btn" aria-label="Unmute video">🔇</button>
+              <button class="unboxing-ctrl-btn clickable" id="unboxing-video-replay-btn" aria-label="Replay video">⟳</button>
+            </div>
+            <div class="unboxing-frame-border-accent"></div>
+          </div>
+        </div>
+
+        <!-- Right: Editorial Narrative & Fragrance Details -->
+        <div class="unboxing-story-col">
+          <div class="unboxing-meta-badge" id="unboxing-active-num">01 · SIGNATURE COFFRET</div>
+          <h3 class="unboxing-story-title" id="unboxing-active-title">MIDNIGHT MUSK</h3>
+          <div class="unboxing-story-subtitle" id="unboxing-active-subtitle">Dark • Sensual • Mysterious</div>
+          <div class="unboxing-story-family" id="unboxing-active-family">Oriental Amber Musk</div>
+          
+          <p class="unboxing-story-desc" id="unboxing-active-desc">
+            Distilled under moonless skies. Dark smoked resins, golden amber embers, and sensual botanical musk unfold in an intimate veil that warms to the skin over hours.
+          </p>
+
+          <div class="unboxing-notes-cluster">
+            <span class="cluster-label">KEY OLFACTORY NOTES</span>
+            <div class="unboxing-notes-pills" id="unboxing-active-notes">
+              <span class="unboxing-note-pill">Black Cardamom</span>
+              <span class="unboxing-note-pill">Kasturi Accord</span>
+              <span class="unboxing-note-pill">Aged Oud</span>
+            </div>
+          </div>
+
+          <div class="unboxing-action-row">
+            <button class="noor-btn gold-line clickable" id="unboxing-discover-btn" data-perfume-id="01" data-cursor="DISCOVER">
+              <span>DISCOVER MIDNIGHT MUSK →</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- 4 Fragrance Video Grid (All 4 Videos playing smoothly side-by-side) -->
+      <div class="unboxing-all-grid reveal-on-scroll">
+        <!-- Video Card 1 -->
+        <div class="unboxing-preview-card active clickable" data-fragrance-id="01">
+          <div class="preview-video-wrap">
+            <video class="unboxing-preview-video" autoplay muted loop playsinline poster="public/assets/noor/midnight-musk/frame-01.webp">
+              <source src="assets/videos/midnight-musk-unboxing.mp4" type="video/mp4">
+            </video>
+            <div class="preview-active-glow"></div>
+          </div>
+          <div class="preview-card-info">
+            <span class="preview-card-num">01</span>
+            <h4 class="preview-card-name">MIDNIGHT MUSK</h4>
+            <span class="preview-card-tag">Oriental Amber</span>
+          </div>
+        </div>
+
+        <!-- Video Card 2 -->
+        <div class="unboxing-preview-card clickable" data-fragrance-id="02">
+          <div class="preview-video-wrap">
+            <video class="unboxing-preview-video" autoplay muted loop playsinline poster="public/assets/noor/rain-whisper/frame-01.webp">
+              <source src="assets/videos/rain-whisper-unboxing.mp4" type="video/mp4">
+            </video>
+            <div class="preview-active-glow"></div>
+          </div>
+          <div class="preview-card-info">
+            <span class="preview-card-num">02</span>
+            <h4 class="preview-card-name">RAIN WHISPER</h4>
+            <span class="preview-card-tag">Monsoon Mitti</span>
+          </div>
+        </div>
+
+        <!-- Video Card 3 -->
+        <div class="unboxing-preview-card clickable" data-fragrance-id="03">
+          <div class="preview-video-wrap">
+            <video class="unboxing-preview-video" autoplay muted loop playsinline poster="public/assets/noor/sandal-glow/frame-01.webp">
+              <source src="assets/videos/sandal-glow-unboxing.mp4" type="video/mp4">
+            </video>
+            <div class="preview-active-glow"></div>
+          </div>
+          <div class="preview-card-info">
+            <span class="preview-card-num">03</span>
+            <h4 class="preview-card-name">SANDAL GLOW</h4>
+            <span class="preview-card-tag">Mysore Chandan</span>
+          </div>
+        </div>
+
+        <!-- Video Card 4 -->
+        <div class="unboxing-preview-card clickable" data-fragrance-id="04">
+          <div class="preview-video-wrap">
+            <video class="unboxing-preview-video" autoplay muted loop playsinline poster="public/assets/noor/white-petal/frame-01.webp">
+              <source src="assets/videos/white-petal-unboxing.mp4" type="video/mp4">
+            </video>
+            <div class="preview-active-glow"></div>
+          </div>
+          <div class="preview-card-info">
+            <span class="preview-card-num">04</span>
+            <h4 class="preview-card-name">WHITE PETAL</h4>
+            <span class="preview-card-tag">Royal Mogra</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 9-13: THE COLLECTION — FOUR SCENTS. FOUR WORLDS.
+       ========================================================================== -->
+  <section class="heritage-quadrant-section" id="heritage-quadrant">
+    <div class="quadrant-header-container reveal-on-scroll">
+      <div class="quadrant-header-flex">
+        <div>
+          <span class="quadrant-tag">INDIAN FRAGRANCE HERITAGE</span>
+          <h2 class="quadrant-title">FOUR SCENTS. FOUR WORLDS.</h2>
+        </div>
+        <div class="quadrant-slider-nav">
+          <button class="slider-nav-btn prev clickable" id="worlds-prev-btn" aria-label="Previous Fragrance">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+          <div class="slider-counter"><span id="worlds-current-idx">01</span> / 04</div>
+          <button class="slider-nav-btn next clickable" id="worlds-next-btn" aria-label="Next Fragrance">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M9 6l6 6-6 6"/></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Horizontal Visual Scenes -->
+    <div class="worlds-horizontal-slider" id="worlds-horizontal-slider">
+      <!-- 01 · Midnight Musk / Kasturi Attar -->
+      <div class="world-scene-card" data-world-id="kasturi">
+        <div class="world-scene-grid">
+          <div class="world-image-col" data-cursor="EXPLORE DARK">
+            <img src="assets/images/approved_perfume_01_midnight_musk.jpg" alt="KASTURI ATTAR · MIDNIGHT MUSK">
+            <canvas class="world-canvas-overlay" id="canvas-world-kasturi"></canvas>
+          </div>
+          <div class="world-meta-col">
+            <span class="world-number-tag">01 · THE HERITAGE QUADRANT</span>
+            <h3 class="world-perfume-name">KASTURI ATTAR</h3>
+            <span class="world-perfume-subname">MIDNIGHT MUSK · EAU DE PARFUM</span>
+            <div class="world-keywords-row">
+              <span class="keyword-badge">DARK</span>
+              <span class="keyword-badge">WARM</span>
+              <span class="keyword-badge">MYSTERIOUS</span>
+            </div>
+            <p class="world-narrative-text">Dark amber and sacred smoke curling through ancient moonlit stone courtyards. Kasturi is intimate, animalic, and profoundly hypnotic — warming to the pulse of whoever wears it.</p>
+            <div class="world-action-row">
+              <button class="noor-btn gold-line clickable" data-action="open-perfume" data-perfume-id="01">
+                <span>DISCOVER KASTURI</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 02 · Rain Whisper / Mitti Attar -->
+      <div class="world-scene-card" data-world-id="mitti">
+        <div class="world-scene-grid">
+          <div class="world-image-col" data-cursor="EXPLORE EARTH">
+            <img src="assets/images/approved_perfume_02_rain_whisper.jpg" alt="MITTI ATTAR · RAIN WHISPER">
+            <canvas class="world-canvas-overlay" id="canvas-world-mitti"></canvas>
+          </div>
+          <div class="world-meta-col">
+            <span class="world-number-tag">02 · THE HERITAGE QUADRANT</span>
+            <h3 class="world-perfume-name">MITTI ATTAR</h3>
+            <span class="world-perfume-subname">RAIN WHISPER · EAU DE PARFUM</span>
+            <div class="world-keywords-row">
+              <span class="keyword-badge">EARTH</span>
+              <span class="keyword-badge">RAIN</span>
+              <span class="keyword-badge">MEMORY</span>
+            </div>
+            <p class="world-narrative-text">The irreplaceable fragrance of baked earth drinking the first droplet of monsoon rain. Distilled for centuries in Kannauj using hydro-distillation into aged sandalwood oil.</p>
+            <div class="world-action-row">
+              <button class="noor-btn gold-line clickable" data-action="open-perfume" data-perfume-id="02">
+                <span>DISCOVER MITTI</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 03 · Sandal Glow / Mysore Sandalwood -->
+      <div class="world-scene-card" data-world-id="sandalwood">
+        <div class="world-scene-grid">
+          <div class="world-image-col" data-cursor="EXPLORE WARM">
+            <img src="assets/images/approved_perfume_03_sandal_glow.jpg" alt="MYSORE SANDALWOOD · SANDAL GLOW">
+            <canvas class="world-canvas-overlay" id="canvas-world-sandalwood"></canvas>
+          </div>
+          <div class="world-meta-col">
+            <span class="world-number-tag">03 · THE HERITAGE QUADRANT</span>
+            <h3 class="world-perfume-name">MYSORE SANDALWOOD</h3>
+            <span class="world-perfume-subname">SANDAL GLOW · EAU DE PARFUM</span>
+            <div class="world-keywords-row">
+              <span class="keyword-badge">WARM</span>
+              <span class="keyword-badge">GROUNDED</span>
+              <span class="keyword-badge">TIMELESS</span>
+            </div>
+            <p class="world-narrative-text">Golden heartwood of Santalum album smoothed by time. A buttery, meditative warmth that settles the mind and radiates soft temple light upon the spirit.</p>
+            <div class="world-action-row">
+              <button class="noor-btn gold-line clickable" data-action="open-perfume" data-perfume-id="03">
+                <span>DISCOVER MYSORE</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 04 · White Petal / Mogra Attar -->
+      <div class="world-scene-card" data-world-id="mogra">
+        <div class="world-scene-grid">
+          <div class="world-image-col" data-cursor="EXPLORE SOFT">
+            <img src="assets/images/approved_perfume_04_white_petal.jpg" alt="MOGRA ATTAR · WHITE PETAL">
+            <canvas class="world-canvas-overlay" id="canvas-world-mogra"></canvas>
+          </div>
+          <div class="world-meta-col">
+            <span class="world-number-tag">04 · THE HERITAGE QUADRANT</span>
+            <h3 class="world-perfume-name">MOGRA ATTAR</h3>
+            <span class="world-perfume-subname">WHITE PETAL · EAU DE PARFUM</span>
+            <div class="world-keywords-row">
+              <span class="keyword-badge">SOFT</span>
+              <span class="keyword-badge">LUMINOUS</span>
+              <span class="keyword-badge">INTIMATE</span>
+            </div>
+            <p class="world-narrative-text">Arabian Jasmine sambac picked in the deep stillness before dawn. Floating weightless in marble basins, exuding a luminescence that feels like cooled silver silk.</p>
+            <div class="world-action-row">
+              <button class="noor-btn gold-line clickable" data-action="open-perfume" data-perfume-id="04">
+                <span>DISCOVER MOGRA</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 14: THE 20-PERFUME COLLECTION
+       ========================================================================== -->
+  <section class="collection-20-section" id="collection-section">
+    <div class="collection-header-block reveal-on-scroll">
+      <span class="editorial-tag">THE FULL FLACON COMPENDIUM</span>
+      <h2 class="collection-header-title">20 WORLDS. ONE NOOR.</h2>
+      <p class="collection-header-sub">“Every fragrance is a world waiting to be imagined.”</p>
+
+      <div class="collection-filters">
+        <button class="collection-filter-btn active clickable" data-filter="all">ALL 20 FRAGRANCES</button>
+        <button class="collection-filter-btn clickable" data-filter="Indian Heritage">HERITAGE QUADRANT</button>
+        <button class="collection-filter-btn clickable" data-filter="Ouds & Woods">OUDS & WOODS</button>
+        <button class="collection-filter-btn clickable" data-filter="Florals & Whites">FLORALS & WHITES</button>
+        <button class="collection-filter-btn clickable" data-filter="Fresh & Citrus">FRESH & CITRUS</button>
+      </div>
+    </div>
+
+    <!-- Editorial Asymmetric Masonry Gallery -->
+    <div class="perfumes-masonry-gallery" id="perfumes-masonry-gallery">
+      <!-- 20 actual bottles rendered dynamically with full metadata -->
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 16: THE UNIQUE NOOR EXPERIENCE
+       ========================================================================== -->
+  <section class="experience-journey-section reveal-on-scroll">
+    <div class="journey-container">
+      <div class="journey-header">
+        <span class="journey-tag">THE PHILOSOPHY OF PERCEPTION</span>
+        <h2 class="journey-title">FIRST, SEE IT.<br>THEN, SMELL IT.</h2>
+      </div>
+
+      <div class="journey-steps-grid">
+        <div class="journey-step-card">
+          <span class="journey-step-num">STAGE 01</span>
+          <h3 class="journey-step-name">SEE</h3>
+          <p class="journey-step-text">
+            Absorb the visual aura, the faceted golden amber reflections, and the mineral tone of the bottle.
+          </p>
+        </div>
+
+        <div class="journey-step-card">
+          <span class="journey-step-num">STAGE 02</span>
+          <h3 class="journey-step-name">IMAGINE</h3>
+          <p class="journey-step-text">
+            Awaken the interior memory: rain on dry brick, midnight jasmine blossoms, or temple sandalwood smoke.
+          </p>
+        </div>
+
+        <div class="journey-step-card">
+          <span class="journey-step-num">STAGE 03</span>
+          <h3 class="journey-step-name">DISCOVER</h3>
+          <p class="journey-step-text">
+            Unfold the rare botanical architecture — hand-harvested petals and aged agarwood distilled in Kannauj.
+          </p>
+        </div>
+
+        <div class="journey-step-card">
+          <span class="journey-step-num">STAGE 04</span>
+          <h3 class="journey-step-name">SMELL</h3>
+          <p class="journey-step-text">
+            Experience the tactile flacon on your skin. The physical aroma confirms what your mind already pictured.
+          </p>
+        </div>
+
+        <div class="journey-step-card">
+          <span class="journey-step-num">STAGE 05</span>
+          <h3 class="journey-step-name">REMEMBER</h3>
+          <p class="journey-step-text">
+            Long after the top notes evaporate, the visual and emotional memory remains permanently etched.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 17: #SEEYOURSCENT INTERACTIVE CAMPAIGN
+       ========================================================================== -->
+  <section class="see-your-scent-section reveal-on-scroll" id="see-your-scent">
+    <div class="sys-container">
+      <div class="sys-header">
+        <span class="sys-campaign-badge">#SEEYOURSCENT CAMPAIGN</span>
+        <h2 class="sys-main-question">“If your scent had a colour,<br>what would it be?”</h2>
+      </div>
+
+      <div class="sys-app-shell" id="see-your-scent-app">
+        <!-- Interactive Step Engine rendered dynamically -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 18: CREATE YOUR SIGNATURE SCENT — BESPOKE AI ATELIER
+       ========================================================================== -->
+  <section class="scent-gallery-section bespoke-atelier-section" id="scent-gallery">
+    <div class="gallery-container atelier-container" id="scent-studio-container">
+      <div class="gallery-header atelier-header">
+        <span class="gallery-tag atelier-tag">NOOR BESPOKE ATELIER</span>
+        <h2 class="gallery-title atelier-title">CREATE YOUR SIGNATURE SCENT</h2>
+        <p class="atelier-tagline">Your mood. Your imagination. Your fragrance.</p>
+      </div>
+
+      <!-- STAGE 1: SELECTION FORM -->
+      <div class="scent-creator-form" id="scent-creator-form">
+        <!-- Question 1: Feel -->
+        <div class="atelier-step-block">
+          <div class="atelier-step-label">
+            <span class="step-num">01</span>
+            <span class="step-question">What should your fragrance feel like?</span>
+          </div>
+          <div class="scent-cards-grid">
+            <button type="button" class="scent-choice-card selected clickable" data-group="feel" data-value="Mysterious">
+              <span class="card-icon">✧</span>
+              <span class="card-name">Mysterious</span>
+              <span class="card-sub">Enigmatic & deep</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="feel" data-value="Romantic">
+              <span class="card-icon">♡</span>
+              <span class="card-name">Romantic</span>
+              <span class="card-sub">Tender & poetic</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="feel" data-value="Fresh">
+              <span class="card-icon">✦</span>
+              <span class="card-name">Fresh</span>
+              <span class="card-sub">Crystalline & airy</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="feel" data-value="Confident">
+              <span class="card-icon">⚡</span>
+              <span class="card-name">Confident</span>
+              <span class="card-sub">Bold & commanding</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="feel" data-value="Calm">
+              <span class="card-icon">☽</span>
+              <span class="card-name">Calm</span>
+              <span class="card-sub">Serene & meditative</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="feel" data-value="Playful">
+              <span class="card-icon">☼</span>
+              <span class="card-name">Playful</span>
+              <span class="card-sub">Sparkling & radiant</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="feel" data-value="Regal">
+              <span class="card-icon">♔</span>
+              <span class="card-name">Regal</span>
+              <span class="card-sub">Imperial & opulent</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="feel" data-value="Sensual">
+              <span class="card-icon">🪷</span>
+              <span class="card-name">Sensual</span>
+              <span class="card-sub">Warm & intoxicating</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Question 2: Character -->
+        <div class="atelier-step-block">
+          <div class="atelier-step-label">
+            <span class="step-num">02</span>
+            <span class="step-question">Which fragrance character do you prefer?</span>
+          </div>
+          <div class="scent-cards-grid">
+            <button type="button" class="scent-choice-card selected clickable" data-group="character" data-value="Woody">
+              <span class="card-name">Woody</span>
+              <span class="card-sub">Cedar & Sandalwood</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="character" data-value="Warm and amber">
+              <span class="card-name">Warm and amber</span>
+              <span class="card-sub">Resins & Embers</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="character" data-value="Floral">
+              <span class="card-name">Floral</span>
+              <span class="card-sub">Jasmine Sambac & Rose</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="character" data-value="Fresh and airy">
+              <span class="card-name">Fresh and airy</span>
+              <span class="card-sub">Petrichor & Ozone</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="character" data-value="Musky">
+              <span class="card-name">Musky</span>
+              <span class="card-sub">Botanical Skin Veil</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="character" data-value="Soft and powdery">
+              <span class="card-name">Soft and powdery</span>
+              <span class="card-sub">Orris & Cashmere</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="character" data-value="Spicy">
+              <span class="card-name">Spicy</span>
+              <span class="card-sub">Saffron & Cardamom</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="character" data-value="Sweet">
+              <span class="card-name">Sweet</span>
+              <span class="card-sub">Wild Honey & Tonka</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Question 3: Palette -->
+        <div class="atelier-step-block">
+          <div class="atelier-step-label">
+            <span class="step-num">03</span>
+            <span class="step-question">Choose your visual palette</span>
+          </div>
+          <div class="scent-cards-grid color-grid">
+            <button type="button" class="scent-choice-card clickable" data-group="palette" data-value="Midnight black">
+              <span class="color-swatch" style="background: #14110F;"></span>
+              <span class="card-name">Midnight black</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="palette" data-value="Deep burgundy">
+              <span class="color-swatch" style="background: #4A121A;"></span>
+              <span class="card-name">Deep burgundy</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="palette" data-value="Champagne gold">
+              <span class="color-swatch" style="background: #D4AF37;"></span>
+              <span class="card-name">Champagne gold</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="palette" data-value="Ivory and cream">
+              <span class="color-swatch" style="background: #F8F3E6; border: 1px solid #D8C8B0;"></span>
+              <span class="card-name">Ivory and cream</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="palette" data-value="Forest green">
+              <span class="color-swatch" style="background: #1F382B;"></span>
+              <span class="card-name">Forest green</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="palette" data-value="Silver and pearl">
+              <span class="color-swatch" style="background: #C5CCD4;"></span>
+              <span class="card-name">Silver and pearl</span>
+            </button>
+            <button type="button" class="scent-choice-card selected clickable" data-group="palette" data-value="Warm amber">
+              <span class="color-swatch" style="background: #C67D34;"></span>
+              <span class="card-name">Warm amber</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="palette" data-value="Custom colour">
+              <span class="color-swatch rainbow-swatch"></span>
+              <span class="card-name">Custom colour</span>
+              <input type="text" id="scent-custom-color-input" placeholder="e.g. Cobalt Blue" class="custom-color-input" />
+            </button>
+          </div>
+        </div>
+
+        <!-- Question 4: Bottle Silhouette -->
+        <div class="atelier-step-block">
+          <div class="atelier-step-label">
+            <span class="step-num">04</span>
+            <span class="step-question">Choose your bottle silhouette</span>
+          </div>
+          <div class="scent-cards-grid">
+            <button type="button" class="scent-choice-card clickable" data-group="silhouette" data-value="Faceted crystal">
+              <span class="silhouette-glyph">⬡</span>
+              <span class="card-name">Faceted crystal</span>
+              <span class="card-sub">Geometric & Gem-Cut</span>
+            </button>
+            <button type="button" class="scent-choice-card selected clickable" data-group="silhouette" data-value="Sculptural glass">
+              <span class="silhouette-glyph">〰</span>
+              <span class="card-name">Sculptural glass</span>
+              <span class="card-sub">Fluid Organic Curves</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="silhouette" data-value="Minimal rectangular">
+              <span class="silhouette-glyph">▭</span>
+              <span class="card-name">Minimal rectangular</span>
+              <span class="card-sub">Clean Architecture</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="silhouette" data-value="Rounded and elegant">
+              <span class="silhouette-glyph">◯</span>
+              <span class="card-name">Rounded and elegant</span>
+              <span class="card-sub">Soft Volumetric Sphere</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="silhouette" data-value="Tall and architectural">
+              <span class="silhouette-glyph">▯</span>
+              <span class="card-name">Tall & architectural</span>
+              <span class="card-sub">Slender Monolith</span>
+            </button>
+            <button type="button" class="scent-choice-card clickable" data-group="silhouette" data-value="Let NOOR decide">
+              <span class="silhouette-glyph">✦</span>
+              <span class="card-name">Let NOOR decide</span>
+              <span class="card-sub">Curated by Perfumer</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Optional Personalisation -->
+        <div class="atelier-step-block personalisation-block">
+          <div class="atelier-step-label">
+            <span class="step-num">05</span>
+            <span class="step-question">Bespoke Inscription & Inspiration (Optional)</span>
+          </div>
+          <div class="personalisation-inputs-grid">
+            <div class="input-field-wrap">
+              <label for="scent-user-name">NAME OR INITIALS FOR LABEL</label>
+              <input type="text" id="scent-user-name" placeholder="e.g. Eleanor V. or NOOR PRIVÉ" maxlength="30" />
+            </div>
+            <div class="input-field-wrap">
+              <label for="scent-user-memory">MEMORY OR EMOTION INSPIRING IT</label>
+              <input type="text" id="scent-user-memory" placeholder="e.g. Midnight rain on warm Rajasthan stones" maxlength="100" />
+            </div>
+            <div class="input-field-wrap">
+              <label for="scent-naming-style">PREFERRED NAMING STYLE</label>
+              <select id="scent-naming-style">
+                <option value="poetic" selected>Poetic & Evocative</option>
+                <option value="modern">Modern & Minimal</option>
+                <option value="mysterious">Mysterious & Noir</option>
+                <option value="romantic">Romantic & Sensual</option>
+                <option value="regal">Regal & Imperial</option>
+              </select>
+            </div>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="atelier-submit-wrap">
+          <button type="button" class="noor-btn gold-line atelier-create-btn clickable" id="btn-create-scent">
+            <span>CREATE MY FRAGRANCE</span>
+            <span class="sparkle-icon">✨</span>
+          </button>
+          <span class="atelier-note">Our AI Master Perfumer will compose an exclusive formula and sculpt your flacon.</span>
+        </div>
+      </div>
+
+      <!-- STAGE 2: CINEMATIC CREATION LOADER -->
+      <div class="scent-creation-loader" id="scent-creation-loader" style="display: none;">
+        <div class="loader-aura"></div>
+        <div class="loader-flask">
+          <div class="flask-liquid"></div>
+        </div>
+        <span class="loader-heading">CRAFTING YOUR SIGNATURE SCENT</span>
+        <div class="loader-progress-track">
+          <div class="loader-progress-fill" id="scent-loader-progress"></div>
+        </div>
+        <span class="loader-status-ticker" id="scent-loader-status">Consulting the Master Perfumer & weaving olfactory accords...</span>
+      </div>
+
+      <!-- STAGE 3: CINEMATIC PRODUCT REVEAL STAGE -->
+      <div class="scent-reveal-stage" id="scent-reveal-stage" style="display: none;">
+        <div class="reveal-inner-container">
+          <!-- Visual Column -->
+          <div class="reveal-visual-col">
+            <div class="reveal-image-frame">
+              <img src="assets/images/approved_perfume_01_midnight_musk.jpg" alt="Generated Fragrance" id="reveal-product-image" />
+              <div class="reveal-badge-overlay" id="reveal-inscription-tag">BESPOKE CREATION · NOOR PRIVÉ</div>
+            </div>
+          </div>
+
+          <!-- Editorial Identity Column -->
+          <div class="reveal-meta-col">
+            <span class="reveal-top-tag">NOOR PRIVATE ATELIER · 50ML EAU DE PARFUM</span>
+            <h3 class="reveal-perfume-name" id="reveal-perfume-name">OBSIDIAN NOCTURNE</h3>
+            <div class="reveal-descriptors" id="reveal-descriptors">
+              <span class="keyword-badge">MYSTERIOUS</span>
+              <span class="keyword-badge">WOODY</span>
+              <span class="keyword-badge">WARM AMBER</span>
+            </div>
+            <p class="reveal-story-text" id="reveal-story-text">
+              An intimate velvet composition echoing dark smoked woods and sacred amber embers. Unfolds like velvet light across stone terraces, lingering as an indelible second skin.
+            </p>
+            <div class="reveal-notes-breakdown" id="reveal-notes-breakdown">
+              <!-- Rendered dynamically -->
+            </div>
+
+            <!-- Post-Reveal Action Bar -->
+            <div class="reveal-actions-grid">
+              <button type="button" class="noor-btn gold-line clickable" id="btn-create-another">
+                <span>CREATE ANOTHER DESIGN</span>
+              </button>
+              <button type="button" class="noor-btn gold-line clickable" id="btn-edit-preferences">
+                <span>EDIT PREFERENCES</span>
+              </button>
+              <button type="button" class="noor-btn gold-line clickable" id="btn-download-scent">
+                <span>DOWNLOAD CREATION ↓</span>
+              </button>
+              <button type="button" class="noor-btn gold-line clickable" id="btn-share-scent">
+                <span>SHARE CREATION ↗</span>
+              </button>
+              <button type="button" class="noor-btn gold-fill clickable" id="btn-enquire-scent">
+                <span>ENQUIRE ABOUT THIS FRAGRANCE</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 19: INSTAGRAM EDITORIAL GALLERY — “A WORLD BEYOND SCENT.”
+       ========================================================================== -->
+  <section class="noor-instagram-section" id="instagram-cta-section">
+    <div class="instagram-cta-container">
+      <!-- Profile Header -->
+      <div class="instagram-profile-header">
+        <div class="instagram-brand-mark">
+          <svg class="instagram-brand-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-label="Instagram icon" role="img">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <span class="instagram-tag">@NOOR_BEYONDSCENT</span>
+          <span class="instagram-verified" title="Verified Maison">✦</span>
+        </div>
+        <h2 class="instagram-cta-heading">A WORLD BEYOND SCENT.</h2>
+        <p class="instagram-cta-subtext">
+          Stories of smoke, terracotta, temple heartwood and dawn jasmine. Immerse yourself in the visual realm of NOOR.
+        </p>
+      </div>
+
+      <!-- Curated 6-Post Editorial Gallery -->
+      <div class="instagram-posts-gallery">
+        <a href="https://www.instagram.com/noor_beyondscent/" target="_blank" rel="noopener noreferrer" class="insta-post-card clickable">
+          <img src="assets/images/instagram/insta_1.jpg" alt="Velvet Night Perfume Still Life" loading="lazy" />
+          <div class="insta-overlay">
+            <span class="insta-glyph">✦</span>
+            <span class="insta-caption">09 · VELVET NIGHT<br>Black violet and smoky cashmere.</span>
+            <span class="insta-meta">♥ 2,418 · @noor_beyondscent</span>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/noor_beyondscent/" target="_blank" rel="noopener noreferrer" class="insta-post-card clickable">
+          <img src="assets/images/instagram/insta_2.jpg" alt="Velvet Bloom Burgundy & Gold" loading="lazy" />
+          <div class="insta-overlay">
+            <span class="insta-glyph">✦</span>
+            <span class="insta-caption">05 · VELVET BLOOM<br>Burgundy damask rose & aged agarwood.</span>
+            <span class="insta-meta">♥ 3,892 · @noor_beyondscent</span>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/noor_beyondscent/" target="_blank" rel="noopener noreferrer" class="insta-post-card clickable">
+          <img src="assets/images/instagram/insta_3.jpg" alt="Amber Rain Luxury Perfume" loading="lazy" />
+          <div class="insta-overlay">
+            <span class="insta-glyph">✦</span>
+            <span class="insta-caption">18 · AMBER RAIN<br>Golden monsoon petrichor on hot terracotta.</span>
+            <span class="insta-meta">♥ 4,120 · @noor_beyondscent</span>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/noor_beyondscent/" target="_blank" rel="noopener noreferrer" class="insta-post-card clickable">
+          <img src="assets/images/instagram/insta_4.jpg" alt="Golden Woods Perfume Set" loading="lazy" />
+          <div class="insta-overlay">
+            <span class="insta-glyph">✦</span>
+            <span class="insta-caption">20 · GOLDEN WOODS<br>Pampore saffron & century-old Mysore heartwood.</span>
+            <span class="insta-meta">♥ 5,310 · @noor_beyondscent</span>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/noor_beyondscent/" target="_blank" rel="noopener noreferrer" class="insta-post-card clickable">
+          <img src="assets/images/instagram/insta_5.jpg" alt="Moon Flower Perfume Still Life" loading="lazy" />
+          <div class="insta-overlay">
+            <span class="insta-glyph">✦</span>
+            <span class="insta-caption">07 · MOON FLOWER<br>Nocturnal tuberose blooming in stillness.</span>
+            <span class="insta-meta">♥ 2,940 · @noor_beyondscent</span>
+          </div>
+        </a>
+        <a href="https://www.instagram.com/noor_beyondscent/" target="_blank" rel="noopener noreferrer" class="insta-post-card clickable">
+          <img src="assets/images/instagram/insta_6.jpg" alt="Silver Rain Perfume Set" loading="lazy" />
+          <div class="insta-overlay">
+            <span class="insta-glyph">✦</span>
+            <span class="insta-caption">16 · SILVER RAIN<br>Crystalline aldehydes & white tea silk.</span>
+            <span class="insta-meta">♥ 3,654 · @noor_beyondscent</span>
+          </div>
+        </a>
+      </div>
+
+      <!-- Action Button -->
+      <div class="instagram-action-wrap">
+        <a href="https://www.instagram.com/noor_beyondscent/" target="_blank" rel="noopener noreferrer" class="noor-instagram-btn clickable" aria-label="Follow our journey on Instagram (opens in a new tab)">
+          <svg class="instagram-btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+          <span class="instagram-btn-text">FOLLOW OUR JOURNEY ON INSTAGRAM</span>
+          <span class="instagram-btn-arrow">↗</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       SECTION 20: FOOTER
+       ========================================================================== -->
+  <footer class="noor-footer">
+    <div class="footer-top-grid">
+      <div class="footer-brand-col">
+        <img src="assets/images/noor_navbar_logo.png" alt="NOOR Beyond Scent" style="height: 62px; width: auto; max-width: 220px; object-fit: contain; margin-bottom: 1.5rem; filter: drop-shadow(0 2px 8px rgba(181, 150, 90, 0.25));">
+        <p class="footer-brand-philosophy">
+          “We experience fragrance through the nose, but we discover it through imagination. The Scent You Can See.”
+        </p>
+      </div>
+
+      <div class="footer-nav-col">
+        <div class="footer-col-title">NAVIGATION</div>
+        <ul class="footer-links-list">
+          <li><a href="#hero-section" class="clickable">DISCOVER</a></li>
+          <li><a href="#heritage-quadrant" class="clickable">THE QUADRANT</a></li>
+          <li><a href="#collection-section" class="clickable">COLLECTION</a></li>
+          <li><a href="#the-story" class="clickable">OUR STORY</a></li>
+          <li><a href="#see-your-scent" class="clickable">#SEEYOURSCENT</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-newsletter-col">
+        <div class="newsletter-invitation">Enter the world of NOOR.</div>
+        <p class="newsletter-subtext">Receive private seasonal flacon allocations and olfactory monographs.</p>
+        <form class="newsletter-form" onsubmit="event.preventDefault(); alert('Welcome to the world of NOOR.');">
+          <input type="email" placeholder="Your email address" class="newsletter-input" required>
+          <button type="submit" class="newsletter-submit-btn clickable">ENTER</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="footer-bottom-bar">
+      <span class="footer-creed">SEE THE SCENT. FEEL THE STORY.</span>
+      <span>© 2026 NOOR PARFUMS. ALL RIGHTS RESERVED. HANDCRAFTED IN KANNAUJ & MYSORE.</span>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       SECTION 15: PRODUCT DETAIL EXPERIENCE (CINEMATIC MODAL)
+       ========================================================================== -->
+  <div class="pdp-modal-backdrop" id="pdp-modal-backdrop"></div>
+  <div class="pdp-modal-shell" id="pdp-modal-shell">
+    <button class="pdp-close-btn clickable" id="pdp-close-btn" aria-label="Close product view">✕</button>
+    <div class="pdp-modal-layout" id="pdp-modal-layout">
+      <!-- Injected dynamically on click -->
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       SECTION 19: DISCOVERY BAG SLIDE-OVER DRAWER
+       ========================================================================== -->
+  <div class="bag-backdrop" id="noor-bag-backdrop"></div>
+  <aside class="bag-drawer" id="noor-bag-drawer">
+    <div class="bag-drawer-header">
+      <span class="bag-drawer-title">DISCOVERY BAG</span>
+      <button class="bag-close-btn clickable" id="close-bag-btn" aria-label="Close bag">✕</button>
+    </div>
+
+    <div class="bag-items-list" id="bag-items-list">
+      <!-- Rendered dynamically by NoorDiscoveryBag -->
+    </div>
+
+    <div class="bag-drawer-footer">
+      <div class="bag-summary-row">
+        <span>TOTAL EXPERIENCE</span>
+        <span class="bag-summary-price" id="bag-total-price">₹0</span>
+      </div>
+      <button class="noor-btn gold-line clickable" id="bag-checkout-btn" style="width: 100%;">
+        <span>PROCEED TO EXPERIENCE</span>
+      </button>
+      <div class="bag-checkout-confirmation hidden" id="bag-checkout-confirmation">
+        <span>Thank you. Your bespoke discovery flacons are being hand-blended and sealed with wax.</span>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Vendor Libraries: GSAP & ScrollTrigger -->
+  <script src="js/vendor/gsap.min.js"></script>
+  <script src="js/vendor/ScrollTrigger.min.js"></script>
+
+  <!-- ES6 Modules Entry Point -->
+  <script type="module" src="js/app.js?v=11"></script>
+  <script src="js/custom-scent-studio.js"></script>
+  <script src="js/concierge-chat.js"></script>
+</body>
+</html>
